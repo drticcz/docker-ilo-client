@@ -27,7 +27,8 @@ RUN apt-get update && \
 
 # Autostart firefox (might not be the best way to do it, but it does the trick)
 RUN bash -c 'echo "exec openbox-session &" >> ~/.xinitrc' && \
-	bash -c 'echo "firefox \${HILO_HOST}\${HILO_USER:+/html/java_irc.html?sessionKey=\$(cat /session_key)}" >> ~/.xinitrc' && \
+	bash -c 'echo "xterm" >> ~/.xinitrc' && \
+	# bash -c 'echo "firefox \${HILO_HOST}\${HILO_USER:+/html/java_irc.html?sessionKey=\$(cat /session_key)}" >> ~/.xinitrc' && \
 	bash -c 'chmod 755 ~/.xinitrc'
 
 COPY userscript.sh /userscript.sh
